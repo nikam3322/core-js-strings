@@ -151,7 +151,11 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
 function removeFirstOccurrences(str, value) {
-  return str.remove(value, '');
+  const num = str.indexOf(value);
+  if (num !== -1) {
+    return str.slice(0, num) + str.slice(num + value.length);
+  }
+  return str;
 }
 
 /**
@@ -167,7 +171,11 @@ function removeFirstOccurrences(str, value) {
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
 function removeLastOccurrences(str, value) {
-  return str.Remove(str.LastIndexOf(value));
+  const num = str.lastIndexOf(value);
+  if (num !== -1) {
+    return str.slice(0, num) + str.slice(num + value.length);
+  }
+  return str;
 }
 
 /**
@@ -236,15 +244,7 @@ function endsWith(str, substr) {
  *   formatTime(0, 0) => "00:00"
  */
 function formatTime(minutes, seconds) {
-  let minute = 0;
-  let second = 0;
-  if (minutes < 10) {
-    minute = `0${minutes}`;
-  }
-  if (seconds < 10) {
-    second = `0${seconds}`;
-  }
-  return `${minute}:${second}`;
+  return `${String(minutes).padStart(2, 0)}:${String(seconds).padStart(2, 0)}`;
 }
 
 /**
@@ -257,8 +257,12 @@ function formatTime(minutes, seconds) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  let result = '';
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    result += str[i];
+  }
+  return result;
 }
 
 /**
