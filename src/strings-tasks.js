@@ -1,4 +1,3 @@
-
 /* *******************************************************************************************
  *                                                                                           *
  * Please read the following tutorial before implementing tasks:                              *
@@ -276,8 +275,11 @@ function reverseString(str) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+function orderAlphabetically(str) {
+  const arr = str.split('');
+  const array = arr.sort();
+  const str2 = array.join('');
+  return str2;
 }
 
 /**
@@ -519,4 +521,3 @@ module.exports = {
   encodeToRot13,
   getCardId,
 };
-
