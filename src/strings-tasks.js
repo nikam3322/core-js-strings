@@ -371,7 +371,7 @@ function findLongestWord(sentence) {
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
 function reverseWords(str) {
-  throw new Error('Not implemented');
+  return str.split('').reverse().join('').split(' ').reverse().join(' ');
 }
 
 /**
